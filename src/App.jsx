@@ -1,5 +1,5 @@
-
 import { motion } from "framer-motion";
+import "./index.css";
 
 export default function App() {
   const memories = [
@@ -20,30 +20,60 @@ export default function App() {
 
   const Card = ({ item }) => (
     <motion.div
-      whileHover={{ scale: 1.12 }}
-      transition={{ type: "spring", stiffness: 200, damping: 16 }}
-      className="relative rounded-3xl overflow-hidden shadow-2xl bg-white"
+      whileHover={{ scale: 1.08 }}
+      transition={{ type: "spring", stiffness: 200, damping: 18 }}
+      className="card"
     >
-      <img src={item.src} className="w-full h-full object-cover" />
-      <motion.div
-        initial={{ y: "100%" }}
-        whileHover={{ y: 0 }}
-        transition={{ duration: 0.35 }}
-        className="absolute bottom-0 w-full bg-gradient-to-t from-blue-800/90 via-blue-700/70 to-transparent text-white p-5 text-sm"
-      >
-        {item.caption}
-      </motion.div>
+      <img src={item.src} alt="" />
+      <div className="caption">{item.caption}</div>
     </motion.div>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-300 via-cyan-200 to-blue-300 text-blue-900">
-
-
-      <section className="py-24 text-center">
-        <h1 className="text-6xl mb-4">Hi Rey 💙</h1>
+    <div>
+      {/* HERO */}
+      <section className="hero">
+        <h1>Hi Rey 💙</h1>
         <p>Sorry for the delay, Here's the website &lt;3</p>
+        <motion.img
+          src="rey_whale.png"
+          className="whale"
+          animate={{ y: [0, -20, 0] }}
+          transition={{ duration: 5, repeat: Infinity }}
+        />
       </section>
+
+      {/* MESSAGE */}
+      <section className="message">
+        <p>I love you so much</p>
+        <p>Thanks for being here</p>
+        <p className="sign">— Sid 🐳</p>
+      </section>
+
+      {/* MEMORIES */}
+      <section>
+        <h2>My little princesss — Memories 📸</h2>
+        <div className="card-grid">
+          {memories.map((m, i) => (
+            <Card key={i} item={m} />
+          ))}
+        </div>
+      </section>
+
+      {/* ACHIEVEMENTS */}
+      <section>
+        <h2>My girl's achievements 🏆</h2>
+        <div className="card-grid">
+          {achievements.map((a, i) => (
+            <Card key={i} item={a} />
+          ))}
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer>
+        Made with love and whale energy 💙🐳
+      </footer>
     </div>
   );
 }
