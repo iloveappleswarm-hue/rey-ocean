@@ -38,9 +38,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-300 via-cyan-200 to-blue-300 text-blue-900">
-      <div className="bg-red-500 text-white p-6 text-3xl text-center">
-  TAILWIND IS WORKING
-</div>
+
 
       <section className="py-24 text-center">
         <h1 className="text-6xl mb-4">Hi Rey 💙</h1>
